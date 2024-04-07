@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Listing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <h1>Add Student</h1>
+            <!-- Form to add a new student -->
+            <form id="addStudentForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="Name" required>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="addStudent()">Submit</button>
+            </form>
+        </div>
+        <br><br>
+        <!-- Table to display student data -->
+        <table id="studentTable" class="table">
+            <h1>List all Student</h1>
+            <br>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script/script.js"></script>
+    <script>
+        // Call fetchStudentData() when the page loads
+        fetchStudentData();
+    </script>
+</body>
+
+</html>

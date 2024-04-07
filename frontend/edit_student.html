@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Student</h1>
+        <!-- Form to edit an existing student -->
+        <form id="editStudentForm">
+            <div class="form-group">
+                <label for="firstName">ID</label>
+                <input type="text" class="form-control" id="studentId" name="studentId" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="updateStudent()">Submit</button>
+         </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script/script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+                // Get the URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                // Get the studentId parameter value from the URL
+                const studentId = urlParams.get('studentId');
+                console.log(studentId);
+                fetch(`http://localhost:3000/students/${studentId}`, {
+                method: 'GET'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("studentId").value = data.student_id;
+                    document.getElementById("firstName").value = data.student_name;
+                    
+                })
+                .catch(error => {
+                    console.error('Error fetching student data:', error);
+                });
+            });
+    </script>
+</body>
+
+</html>
