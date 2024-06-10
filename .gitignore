@@ -1,1 +1,8 @@
-backend/node_modules/.gitignore
+backend/node_modules/*
+frontend/.DS_Store
+frontend/script/.DS_Store
+frontend/style/.DS_Store
+backend/.DS_Store
+backend/.DS_Store
+.DS_Store
+backend/.DS_Store
